@@ -1,0 +1,138 @@
+/* import external variables and functions here */
+@import url("/styles/common.css");
+
+/* Put page specific css here */
+
+/* custom fonts in body */
+body {
+    font-family: Quicksand,sans-serif;
+}
+/* reused variables here */
+:root {
+/* if green-screen #00ff00 is having trouble try this blue #0047bb */
+--green-screen: #00ff00;
+--green-screen: var(--color-background-dark); /* switched to off black for this project */
+
+/* Dimensions Dynamic Variables don't edit here edit javascript  */
+/* webcapture.js function call download_frames(record_id, record_width, record_height) */
+--pixels-width: 3840px;
+--pixels-height: 2160px;
+--grid-width: 3840;
+--grid-height: 2160;
+
+}
+/* place this variable in your outside container to dynamically adjust screen capture size */
+.record{
+    display: grid;
+    grid-template-columns: repeat( var(--grid-width) , 1fr);
+    grid-template-rows: repeat( var(--grid-height) , 1fr);
+
+    width: var(--pixels-width);
+    height: var(--pixels-height);
+    min-width: var(--pixels-width);
+    min-height: var(--pixels-height);
+    max-width: var(--pixels-width);
+    max-height: var(--pixels-height);
+    background-color: var(--green-screen);
+    visibility: var(--record-visability);
+     
+}
+/* Your code here my_object is an example or create a seperate css file and import this one for if you need variables */
+/* Place Variables in :root here and edit using webcapture.js function next_frame(frame_number) */
+
+:root{
+
+/* Place your variables and default values here and allow javascript to modify them */
+/* webcapture.js function call next_frame(frame_number) is where to make per frame changes */
+
+--object-width-start: 192;
+--object-width-end: 3648;
+--object-height-start: 216;
+--object-height-end: 1944;
+
+/* This value is adjusted by javascript in web_capture.js by get_text_size(characters_long, lines_deep ) */
+--text-size-current: 3em;
+
+}
+/* In this example the variables are incremented per frame. Frames are defined per still in   */
+.my-object {
+    grid-row: var(--object-height-start) / var(--object-height-end); 
+    grid-column: var(--object-width-start) / var(--object-width-end);
+    background-color: var(--green-screen);
+}
+.my-text{
+    font-size: var(--text-size-current);
+    color: var(--color-text-dark);
+}
+.line{
+    display:flex;
+}
+.underline{
+    text-decoration-line: underline;
+}
+.highlight{
+    background-color: var(--color-error-dark);
+    color: var(--color-text-light);
+    border-radius: 12%;
+}
+.class_function{
+    color:#DE3D82;
+}
+.class_reserved{
+    color: #7E84FA;
+}
+.class_leading{
+    color: #E8C601;
+}
+.class_variable{
+    color:#10B5AF;
+}
+.class_string{
+    color:#F68511;
+}
+.class_comment{
+    color: #72E16A;
+}
+.capture_controls{
+    display: grid;
+    grid-template-columns: repeat( 12 , 1fr );
+    grid-template-rows: repeat( 8, 1fr );
+    height: 75vh;
+}
+.button_record{
+    grid-column: 2/12;
+    grid-row: 7 / 8;
+    background-color: var( --color-foreground );
+    color: var( --color-text );
+    font-size: var(--text-size-large) ;
+    border-color: var(--color-text);
+    border: solid;
+}
+.my_textarea{
+    grid-column: 2 / 12;
+    grid-row: 1 / 6;
+    background-color: var(--color-horizon);
+    color: var(--color-text);
+    border: solid;
+    border-color: var(--color-text);
+}
+.grid-title{
+    display:grid;
+    grid-template-columns: repeat( 12 , 1fr );
+    grid-template-rows: repeat( 4, 1fr );
+    height: 15vh;
+}
+.container-title{
+    grid-column: 2 / 12;
+    grid-row: 2 / 4;
+    color: var( --color-text );
+    font-size: var(--text-size-huge) ;
+    text-align: center;
+}
+.outer_record{
+width: 1px;
+height: 1px;
+background-color: green;
+overflow: hidden;
+}
+/* Try using different z-indexes to manage collision issues */

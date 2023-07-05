@@ -1,0 +1,258 @@
+﻿* {
+    /* removes default spacing */
+    margin: 0px;
+    padding: 0px;
+    border: none;
+    background: none;
+}
+body {
+    /* Sets default em to 16px font */
+    font-size: 16px;
+}
+:root {
+    /* Set universal variables here */
+
+    /* Colors Light Mode */
+    --color-background-dark: #1c1c1e;
+    --color-horizon-dark: #48484a;
+    --color-middleground-dark: #8e8e93;
+    --color-foreground-dark: #cc65ff;
+    --color-text-dark: #f2f2f7;
+    --color-svg-filter-dark: invert(100%) sepia(100%) saturate(0%) hue-rotate(288deg) brightness(102%) contrast(102%);
+    --color-border-dark: rgba(161, 161, 161, 0.2);
+    --color-border-haze-dark: rgba(161, 161, 161, 0.19);
+
+    /* Colors Dark Mode */
+    --color-background-light: #f2f2f7;
+    --color-horizon-light: #ffffff;
+    --color-middleground-light: #8e8e93;
+    --color-foreground-light: #5acdfa;
+    --color-error-light:#F10E13;
+    --color-text-light: #1c1c1e;
+    --color-svg-filter-light: invert(0%) sepia(6%) saturate(7500%) hue-rotate(149deg) brightness(94%) contrast(96%);
+   --color-border-light: rgba(0, 0, 0, 0.2);
+    --color-border-haze-light: rgba(0, 0, 0, 0.19);
+
+    /* Colors Mode agnostic, defaults to Light Mode */
+    --color-background: var(--color-background-light);
+    --color-horizon: var(--color-horizon-light);
+    --color-middleground: var(--color-middleground-light);
+    --color-foreground: var(--color-foreground-light);
+    --color-error: var(--color-error-light);
+    --color-text: var(--color-text-light);
+    --color-svg: var(--color-svg-filter-light);
+    --color-border: var(--color-border-light);
+    --color-border-haze: var(--color-border-haze-light);
+
+    /* Common Object Sizes */
+    --size-navigation-height: 10vh;
+
+    /* Common Text Sizes #em is relative to body{ font-size: 16px } */
+    --size-text-tiny: 0.5em;
+    --size-text-small: 0.8em;
+    --size-text-normal: 1em;
+    --size-text-large: 1.4em;
+    --size-text-huge: 2em;
+
+    /* 12 point sizing */
+    --size-0: 0%;
+    --size-1: 8.33%;
+    --size-2: 16.66%;
+    --size-3: 25%;
+    --size-4: 33.33%;
+    --size-5: 41.66%;
+    --size-6: 50%;
+    --size-7: 58.33%;
+    --size-8: 66.66%;
+    --size-9: 75%;
+    --size-10: 83.33%;
+    --size-11: 91.66%;
+    --size-12: 100%;
+
+    /* other variables */
+    --size-card-padding: .5em;
+    --size-card-image-radius: 15%;
+}
+/* Navigation specific could be removed and put per pages simpler here */
+.navigation-bar {
+    display: flex;
+    width: 100%;
+    height: var(--size-navigation-height);
+    background-color: var(--color-horizon);
+    position: fixed;
+    z-index: 9999;
+}
+.navigation-bar-menu {
+    width: var(--size-2);
+    height: var(--size-navigation-height);
+}
+.navigation-bar-home {
+    width: var(--size-8);
+    height: var(--size-navigation-height);
+    max-height: var(--size-navigation-height);
+}
+.navigation-bar-light {
+    width: var(--size-2);
+    height: var(--size-navigation-height);
+}
+.navigation-bar-spacer {
+    width: var(--size-12);
+    height: 10vh;
+}
+/* Navigation bar drop specific removable, but otherwise globally used */
+.drop {
+    z-index: 9999;
+    width: var(--size-12);
+    height: 90vh;
+    background-color: var(--color-background);
+    display: none;
+    position: fixed;
+}
+.drop-button {
+    margin-top: var(--size-card-padding);
+    margin-left: var(--size-1);
+    margin-right: var(--size-1);
+    width: var(--size-10);
+    height: 10vh;
+    background-color: var(--color-horizon);
+    border-color: var(--color-text);
+    color: var(--color-text);
+    font-size: var(--size-text-huge);
+}
+.drop-button:hover {
+    color: var(--color-horizon);
+    background-color: var(--color-text);
+}
+/* Universal Library Tools */
+.svg {
+    filter: var(--color-svg);
+    transition: transform 0.5s ease;
+}
+.fit-fill {
+    width: 100%;
+    max-width: 100%;
+    max-height: 100%;
+    height: auto;
+}
+.rotate {
+    transform: rotate(180deg);
+    transition: transform 0.5s ease;
+}
+.background {
+    background-color: var(--color-background);
+    width: var(--size-12);
+    height: 100%;
+    min-height: 100vh;
+}
+.round{
+    border-radius: 50%;
+}
+.gap {
+    height: 1em;
+}
+.title {
+    font-size: var(--size-text-large);
+    font-weight: 700;
+}
+.article {
+    font-size: var(--size-text-normal);
+}
+.trim {
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+.shadow {
+    box-shadow: 0 4px 8px 0 var(--color-border), 0 6px 20px 0 var(--color-border-haze);
+}
+.card {
+    display: flex;
+    padding-top: var(--size-card-padding);
+    padding-bottom: var(--size-card-padding);
+    padding-left: var(--size-card-padding);
+    padding-right: var(--size-card-padding);
+    background-color: var(--color-horizon);
+    color: var(--color-text);
+}
+.card-image {
+    width: var(--size-3);
+    border-radius: var(--size-card-image-radius);
+    border-collapse: separate;
+    background-color: var(--color-foreground);
+    aspect-ratio: 1/1;
+    max-height: 14em;
+    max-width: 14em;
+}
+.card-text {
+    margin-left: 1em;
+    width: var(--size-9);
+}
+.hero {
+    display: block;
+    padding-top: var(--size-card-padding);
+    padding-bottom: var(--size-card-padding);
+    padding-left: var(--size-card-padding);
+    padding-right: var(--size-card-padding);
+    background-color: var(--color-horizon);
+    color: var(--color-text);
+    text-align: center;
+}
+.hero-margin {
+    margin-top: 1em;
+    margin-left: 1em;
+    margin-right: 1em;
+    margin-bottom: 1em;
+}
+.hidden{
+    visibility:hidden;
+}
+.color-fg{
+    background-color: var(--color-foreground);
+}
+.color-mg{
+    background-color: var(--color-middleground);
+}
+.color-bg{
+    background-color: var(--color-background);
+}
+.color-hg{
+    background-color: var(--color-horizon);
+}
+.color-error{
+    background-color: var(--color-error);
+}
+.color-svg{
+    background-color: var(--color-svg);
+}
+.color-tx{
+    background-color: var(--color-text);
+}
+
+/* fixes for screen resolution problems */
+@media screen and (min-width: 320px) {
+}
+@media screen and (min-width: 480px) {
+}
+@media screen and (min-width: 576px) {
+}
+@media screen and (min-width: 600px) {
+}
+@media screen and (min-width: 768px) {
+}
+@media screen and (min-width: 900px) {
+}
+@media screen and (min-width: 992px) {
+}
+@media screen and (min-width: 1024px) {
+}
+@media screen and (min-width: 1025px) {
+}
+@media screen and (min-width: 1200px) {
+}
+@media screen and (min-width: 1920px) {
+}
+@media screen and (min-width: 2560px) {
+}
+@media screen and (min-width: 3840px) {
+}
+@media screen and (min-width: 7680px) {
+}

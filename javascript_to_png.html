@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+<!-- Name in search bar tab here-->
+<title>TerminalJunky</title>
+<!-- Your univeral css here -->
+<link rel="stylesheet" href="./styles/common.css" />
+<!-- Your page specific css here -->
+<link rel="stylesheet" href="./styles/javascript_to_png.css" />
+<!-- Your page specific css here -->
+<!-- Your Google link description here -->
+<meta name="description" content="Welcome to my coding cave. A place to store my legacy of code." />
+<!-- Your Name and Authoring here -->
+<meta name="author" content="Bryan Paul" />
+<!-- Your Website tags here -->
+<meta name="keywords" content="coding, scripting, java, c, c++, linux, terminal junky, terminaljunky" />
+
+<!-- Universal web tags here -->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="language" content="en-US" />
+<meta name="robots" content="index, follow" />
+
+<!-- location of image within webpage tab -->
+<link rel="icon" type="image/x-icon" href="./images/terminal.svg">
+
+<!-- External style sheets and resources here -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@700&display=swap" rel="stylesheet">
+
+<!-- <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script> -->
+
+</head><body class="background">
+
+    <!-- Navigation bar -->
+<nav class="navigation-bar shadow">
+    <button class="navigation-bar-menu" onclick="bmenu()"><img class="fit-fill svg" id="bmenu" src="images/menu.svg" /></button>
+    <button class="navigation-bar-home" onclick="blink('javascript_to_png.html')"><img class="fit-fill svg" src="images/home.svg" /></button>
+    <button class="navigation-bar-light" onclick="blight()"><img class="fit-fill svg rotate" id="blight" src="images/light.svg" /></button>
+    </nav>
+    <div class="navigation-bar-spacer"></div>
+    
+    <div class="drop" id="dropbox">
+    <button onclick="blink('javascript_to_png.html')" class="drop-button shadow">Home</button>
+    </div>
+
+<div class="grid-title">
+    <div class="container-title">Javascript to PNG</div>
+</div>
+
+<!-- Your content here -->
+<div class="capture_controls">
+    <textarea id="id_textarea" class="my_textarea" >Insert your code here</textarea>
+    <button id="button_record" class="button_record" onclick="download_frames('stage', 3840, 2160)">Capture</button>
+</div>
+
+<!-- field for screen capture goes here it is hidden -->
+<div class="outer_record">
+<!-- the capture element will first render here then download after -->
+<div id="stage" class="record">
+<!-- This id will be referenced and elements placed within -->
+<code class="my-object my-text" id="my-terminal">
+</pre></code></div>
+</div>
+
+<!-- End of custom content-->
+
+<!-- Your universal javascript here -->
+<script src="./scripts/common.js"></script>
+
+<!-- Support https://html2canvas.hertzen.com this code is there, but included for completeness -->
+<script src="./scripts/html2canvas.js"></script>
+
+<!-- Your page specific javascript here -->
+<script src="./scripts/javascript_to_png.js"></script>
+    
+</body></html>
